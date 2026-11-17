@@ -1,0 +1,9 @@
+{
+  "model": "openai:gemma3:1b",
+  "inputs": 16,
+  "modes": {
+    "temperature 0, seeds 0-2": 7,
+    "temperature 0.7, same seed": 5,
+    "temperature 0.7, seeds 0-2": 1
+  }
+}

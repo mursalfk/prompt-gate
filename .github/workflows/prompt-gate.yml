@@ -1,0 +1,40 @@
+# code/.github/workflows/prompt-gate.yml
+# Blocks a pull request that makes a prompt worse. No model is called here: the job replays answers that
+# were recorded on a developer machine and committed under results/cache/.
+# Not yet run on GitHub: open a test pull request and read the run page before you rely on it.
+name: prompt-gate
+on:
+  pull_request:
+    paths: ["examples/prompts/**", "examples/suite.json", "promptgate/**", "results/**", ".github/workflows/prompt-gate.yml"]
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    env:
+      MODEL: openai:llama3.2:3b
+      RECORDINGS: results/cache/openai-llama3-2-3b.jsonl
+      BASELINE: results/openai-llama3-2-3b/v2_baseline.json
+      # In your own repo this is the one prompt file your app loads.
+      CANDIDATE_PROMPT: examples/prompts/v5_reword.txt
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Tests for the gate itself
+        run: |
+          pip install boto3
+          python test_promptgate.py
+      - name: Replay the candidate prompt (a prompt that was never recorded fails here, nothing is called)
+        run: |
+          python -m promptgate run --suite examples/suite.json \
+            --prompt "$CANDIDATE_PROMPT" --model "$MODEL" \
+            --samples 5 --cache "$RECORDINGS" --cache-mode replay --out candidate.json
+      - name: Gate against the committed baseline
+        run: |
+          python -m promptgate gate --baseline "$BASELINE" \
+            --candidate candidate.json --markdown gate.md
+      - name: Show the verdict on the run page
+        if: always()
+        run: |
+          if [ -f gate.md ]; then cat gate.md >> "$GITHUB_STEP_SUMMARY"; fi
