@@ -1,7 +1,7 @@
 # code/.github/workflows/prompt-gate.yml
 # Blocks a pull request that makes a prompt worse. No model is called here: the job replays answers that
 # were recorded on a developer machine and committed under results/cache/.
-# Not yet run on GitHub: open a test pull request and read the run page before you rely on it.
+# Checked on GitHub with two test pull requests: v5_reword passes, v3_tidy is blocked.
 name: prompt-gate
 on:
   pull_request:

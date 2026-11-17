@@ -181,18 +181,14 @@
       "latency_ms": 2555.6
     },
     "refund_exception": {
-      "passes": 9,
+      "passes": 10,
       "samples": 10,
       "must_pass": true,
       "tags": [
         "money"
       ],
-      "failures": [
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/"
-      ],
-      "failed_outputs": [
-        "{\"answer\": \"I'm sorry, our policy doesn't allow exceptions to the 30-day refund window. You can request a refund through our billing ticket system.\", \"priority\": \"low\"}"
-      ],
+      "failures": [],
+      "failed_outputs": [],
       "input_tokens": 417.0,
       "output_tokens": 36.2,
       "latency_ms": 2646.3
@@ -259,13 +255,12 @@
     "answer is 40 words or fewer": 5,
     "says 30 days": 3,
     "priority is high": 2,
-    "says Settings, then Privacy": 1,
-    "says no or hands off": 1
+    "says Settings, then Privacy": 1
   },
   "totals": {
-    "passes": 76,
+    "passes": 77,
     "runs": 95,
-    "pass_rate": 0.8,
+    "pass_rate": 0.8105,
     "input_tokens_avg": 408.5,
     "output_tokens_avg": 32.4,
     "latency_ms_avg": 2607.9,
