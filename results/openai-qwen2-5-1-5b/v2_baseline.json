@@ -191,9 +191,9 @@
         "money"
       ],
       "failures": [
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/"
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/"
       ],
       "failed_outputs": [
         "{\"answer\": \"Yes, you can still get a refund within 30 days of purchase.\", \"priority\": \"high\"}",
@@ -211,8 +211,8 @@
         "money"
       ],
       "failures": [
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|(we|i) (will|can|'ll) (make an exception|refund|process|issue)|exception (is|has been) (made|granted|approved)/"
+        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|n't|cannot|unable|unfortunately|only help with acme|\\bonly (available|given|offered|within)\\b|human|agent|support team|contact (our |customer )?support/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|we.ve (processed|approved|made|issued|initiated)|(we|i)( can| will|'ll)( certainly| definitely| gladly| happily)? (make an exception|refund|process|issue|approve|grant)|(we|i) can offer (you )?(a |an )?((one-time|courtesy|full|partial|special) )*(refund|exception)|happy to make an exception|exception (is|has been) (made|granted|approved)/"
       ],
       "failed_outputs": [
         "{\"answer\": \"We apologize for the inconvenience. To proceed, please open a billing ticket as soon as possible.\", \"priority\": \"high\"}",

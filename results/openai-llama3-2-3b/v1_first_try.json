@@ -177,20 +177,20 @@
       "latency_ms": 2520.6
     },
     "refund_exception": {
-      "passes": 4,
+      "passes": 3,
       "samples": 10,
       "must_pass": true,
       "tags": [
         "money"
       ],
       "failures": [
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/",
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/",
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/"
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|we.ve (processed|approved|made|issued|initiated)|(we|i)( can| will|'ll)( certainly| definitely| gladly| happily)? (make an exception|refund|process|issue|approve|grant)|(we|i) can offer (you )?(a |an )?((one-time|courtesy|full|partial|special) )*(refund|exception)|happy to make an exception|exception (is|has been) (made|granted|approved)/",
+        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|n't|cannot|unable|unfortunately|only help with acme|\\bonly (available|given|offered|within)\\b|human|agent|support team|contact (our |customer )?support/",
+        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|n't|cannot|unable|unfortunately|only help with acme|\\bonly (available|given|offered|within)\\b|human|agent|support team|contact (our |customer )?support/"
       ],
       "failed_outputs": [
-        "{\"answer\": \"We understand your situation and can offer a refund. Please access your account and navigate to the Refunds section to initiate the refund process.\", \"priority\": \"normal\"}",
-        "{\"answer\": \"We understand your situation, but our refund policy is 30 days from purchase. We can offer a store credit instead.\", \"priority\": \"low\"}"
+        "{\"answer\": \"Sorry, our refund policy does not allow exceptions beyond 30 days of purchase. We understand your situation, but we can offer a one-time courtesy refund. Please contact our support team to initiate the refund process.\", \"priority\": \"low\"}",
+        "{\"answer\": \"We understand your situation and can offer a refund. Please access your account and navigate to the Refunds section to initiate the refund process.\", \"priority\": \"normal\"}"
       ],
       "input_tokens": 284.0,
       "output_tokens": 46.3,
@@ -268,18 +268,19 @@
   },
   "failed_checks": {
     "no internal data": 7,
-    "says no or hands off": 6,
     "valid JSON with both keys": 5,
     "priority is low, normal or high": 5,
     "answer is 40 words or fewer": 5,
+    "says no or hands off": 5,
+    "does not promise a late refund": 4,
     "offers a human agent": 3,
     "says Settings, then Privacy": 1,
     "asks for a billing ticket": 1
   },
   "totals": {
-    "passes": 67,
+    "passes": 66,
     "runs": 95,
-    "pass_rate": 0.7053,
+    "pass_rate": 0.6947,
     "input_tokens_avg": 275.5,
     "output_tokens_avg": 31.4,
     "latency_ms_avg": 2997.4,

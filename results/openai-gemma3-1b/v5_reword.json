@@ -212,9 +212,9 @@
         "money"
       ],
       "failures": [
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/"
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/"
       ],
       "failed_outputs": [
         "```json\n{\n  \"answer\": \"Yes, you can still get a refund within 30 days of purchase.  After 30 days, there are no exceptions.\",\n  \"priority\": \"low\"\n}\n```\n",
@@ -232,9 +232,9 @@
         "money"
       ],
       "failures": [
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|(we|i) (will|can|'ll) (make an exception|refund|process|issue)|exception (is|has been) (made|granted|approved)/",
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/"
+        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|n't|cannot|unable|unfortunately|only help with acme|\\bonly (available|given|offered|within)\\b|human|agent|support team|contact (our |customer )?support/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|we.ve (processed|approved|made|issued|initiated)|(we|i)( can| will|'ll)( certainly| definitely| gladly| happily)? (make an exception|refund|process|issue|approve|grant)|(we|i) can offer (you )?(a |an )?((one-time|courtesy|full|partial|special) )*(refund|exception)|happy to make an exception|exception (is|has been) (made|granted|approved)/",
+        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|n't|cannot|unable|unfortunately|only help with acme|\\bonly (available|given|offered|within)\\b|human|agent|support team|contact (our |customer )?support/"
       ],
       "failed_outputs": [
         "```json\n{\n  \"answer\": \"I understand your situation. While we can\u2019t process a full refund due to the extended time, we\u2019ve reviewed your case and will be issuing a full refund to your account. Please check the status page at status.acme.example.com for updates.\",\n  \"priority\": \"high\"\n}\n```\n",
@@ -311,8 +311,8 @@
     "valid JSON with both keys": 49,
     "priority is low, normal or high": 49,
     "says no or hands off": 20,
+    "does not promise a late refund": 16,
     "answer is 40 words or fewer": 13,
-    "does not promise a late refund": 13,
     "priority is high": 10,
     "does not approve a refund": 10,
     "says no": 7,

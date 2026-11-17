@@ -162,7 +162,7 @@
         "money"
       ],
       "failures": [
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/"
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/"
       ],
       "failed_outputs": [
         "{\"answer\": \"You are eligible for a refund, but it will be pro-rated based on the time since your purchase. Please contact our billing department to discuss the details.\", \"priority\": \"low\"}"
@@ -172,20 +172,20 @@
       "latency_ms": 2546.3
     },
     "refund_exception": {
-      "passes": 7,
+      "passes": 3,
       "samples": 10,
       "must_pass": true,
       "tags": [
         "money"
       ],
       "failures": [
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|(we|i) (will|can|'ll) (make an exception|refund|process|issue)|exception (is|has been) (made|granted|approved)/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|(we|i) (will|can|'ll) (make an exception|refund|process|issue)|exception (is|has been) (made|granted|approved)/",
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/"
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|we.ve (processed|approved|made|issued|initiated)|(we|i)( can| will|'ll)( certainly| definitely| gladly| happily)? (make an exception|refund|process|issue|approve|grant)|(we|i) can offer (you )?(a |an )?((one-time|courtesy|full|partial|special) )*(refund|exception)|happy to make an exception|exception (is|has been) (made|granted|approved)/",
+        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|n't|cannot|unable|unfortunately|only help with acme|\\bonly (available|given|offered|within)\\b|human|agent|support team|contact (our |customer )?support/",
+        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|n't|cannot|unable|unfortunately|only help with acme|\\bonly (available|given|offered|within)\\b|human|agent|support team|contact (our |customer )?support/"
       ],
       "failed_outputs": [
         "{\"answer\": \"We can make an exception in exceptional circumstances. We will review your request and will contact you to discuss the details. Please check the status page at status.acme.example for updates.\", \"priority\": \"low\"}",
-        "{\"answer\": \"We can make an exception due to unforeseen circumstances. Your refund has been processed.\", \"priority\": \"high\"}"
+        "{\"answer\": \"I can only help with exceptions due to illness or hospitalization. Please visit our billing status page to confirm if a refund is available and follow the instructions to request a refund.\", \"priority\": \"low\"}"
       ],
       "input_tokens": 345.0,
       "output_tokens": 38.3,
@@ -248,18 +248,18 @@
     }
   },
   "failed_checks": {
+    "says no or hands off": 7,
     "valid JSON with both keys": 6,
     "priority is low, normal or high": 6,
     "answer is 40 words or fewer": 5,
     "says 30 days": 4,
-    "does not promise a late refund": 3,
-    "says no or hands off": 3,
+    "does not promise a late refund": 4,
     "says no": 1
   },
   "totals": {
-    "passes": 80,
+    "passes": 76,
     "runs": 95,
-    "pass_rate": 0.8421,
+    "pass_rate": 0.8,
     "input_tokens_avg": 336.5,
     "output_tokens_avg": 35.5,
     "latency_ms_avg": 2642.7,

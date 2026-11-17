@@ -63,7 +63,8 @@ def compare(baseline, candidate, **overrides):
     for cid in shared:
         b, c = _rate(bc[cid]), _rate(cc[cid])
         if cc[cid]["must_pass"] and c < cfg["must_pass_min"]:
-            why = f" ({cc[cid]['failures'][0]})" if cc[cid]["failures"] else ""
+            # name the failing check only; the full reason and the failing answers are in the report itself
+            why = f" ({cc[cid]['failures'][0].split(': ', 1)[0]})" if cc[cid]["failures"] else ""
             failures.append(f"must-pass case {cid} at {c:.0%}, needs {cfg['must_pass_min']:.0%} "
                             f"(baseline was {b:.0%}){why}")
         if b - c >= cfg["case_drop"]:

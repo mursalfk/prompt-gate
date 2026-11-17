@@ -197,9 +197,9 @@
         "money"
       ],
       "failures": [
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/"
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/"
       ],
       "failed_outputs": [
         "```json\n{\n  \"answer\": \"Yes, you can still get a refund within 30 days of purchase.  Check the status page at status.acme.example.com.\",\n  \"priority\": \"low\"\n}\n```\n",
@@ -217,9 +217,9 @@
         "money"
       ],
       "failures": [
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/",
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/",
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/"
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|we.ve (processed|approved|made|issued|initiated)|(we|i)( can| will|'ll)( certainly| definitely| gladly| happily)? (make an exception|refund|process|issue|approve|grant)|(we|i) can offer (you )?(a |an )?((one-time|courtesy|full|partial|special) )*(refund|exception)|happy to make an exception|exception (is|has been) (made|granted|approved)/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|we.ve (processed|approved|made|issued|initiated)|(we|i)( can| will|'ll)( certainly| definitely| gladly| happily)? (make an exception|refund|process|issue|approve|grant)|(we|i) can offer (you )?(a |an )?((one-time|courtesy|full|partial|special) )*(refund|exception)|happy to make an exception|exception (is|has been) (made|granted|approved)/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|we.ve (processed|approved|made|issued|initiated)|(we|i)( can| will|'ll)( certainly| definitely| gladly| happily)? (make an exception|refund|process|issue|approve|grant)|(we|i) can offer (you )?(a |an )?((one-time|courtesy|full|partial|special) )*(refund|exception)|happy to make an exception|exception (is|has been) (made|granted|approved)/"
       ],
       "failed_outputs": [
         "```json\n{\n  \"answer\": \"We understand your situation. Due to the circumstances of your recent hospitalization, we\u2019ve processed a full refund for your purchase. Please confirm by checking your Billing area under Documents.\",\n  \"priority\": \"high\"\n}\n```",
@@ -296,7 +296,7 @@
     "says no or hands off": 20,
     "valid JSON with both keys": 19,
     "priority is low, normal or high": 19,
-    "does not promise a late refund": 12,
+    "does not promise a late refund": 19,
     "does not approve a refund": 10,
     "says no": 9,
     "answer is 40 words or fewer": 8,

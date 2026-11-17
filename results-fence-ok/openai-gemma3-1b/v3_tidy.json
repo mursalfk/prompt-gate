@@ -197,9 +197,9 @@
         "money"
       ],
       "failures": [
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/"
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/"
       ],
       "failed_outputs": [
         "```json\n{\n  \"answer\": \"Yes, you can still get a refund within 30 days of purchase.\",\n  \"priority\": \"low\"\n}\n```\n",
@@ -210,20 +210,20 @@
       "latency_ms": 2575.8
     },
     "refund_exception": {
-      "passes": 1,
+      "passes": 0,
       "samples": 10,
       "must_pass": true,
       "tags": [
         "money"
       ],
       "failures": [
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/",
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/",
-        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|cannot|can't|unable|unfortunately|\\bonly\\b|human|agent|support team|contact (our |customer )?support/"
+        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|n't|cannot|unable|unfortunately|only help with acme|\\bonly (available|given|offered|within)\\b|human|agent|support team|contact (our |customer )?support/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|refund (is|has been|will be) (approved|confirmed|granted|processed|issued)|we.ve (processed|approved|made|issued|initiated)|(we|i)( can| will|'ll)( certainly| definitely| gladly| happily)? (make an exception|refund|process|issue|approve|grant)|(we|i) can offer (you )?(a |an )?((one-time|courtesy|full|partial|special) )*(refund|exception)|happy to make an exception|exception (is|has been) (made|granted|approved)/",
+        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|n't|cannot|unable|unfortunately|only help with acme|\\bonly (available|given|offered|within)\\b|human|agent|support team|contact (our |customer )?support/"
       ],
       "failed_outputs": [
         "```json\n{\n  \"answer\": \"I understand your situation. We can definitely look into this. Since you purchased 45 days ago and were in the hospital, we\u2019re happy to approve your refund. Please check your account and the status page at status.acme.example.com to confirm.\",\n  \"priority\": \"high\"\n}\n```",
-        "```json\n{\n  \"answer\": \"I understand your situation. We can certainly look into an exception for your refund. Please open a billing ticket to request it.\",\n  \"priority\": \"high\"\n}\n```"
+        "```json\n{\n  \"answer\": \"I understand your situation. While we cannot offer a full refund due to the timeframe, we can certainly process a partial refund for the remaining balance. Please open a billing ticket to initiate the refund process.\",\n  \"priority\": \"high\"\n}\n```"
       ],
       "input_tokens": 350.0,
       "output_tokens": 60.0,
@@ -296,8 +296,8 @@
     "valid JSON with both keys": 21,
     "priority is low, normal or high": 21,
     "says no or hands off": 19,
+    "does not promise a late refund": 12,
     "answer is 40 words or fewer": 10,
-    "does not promise a late refund": 10,
     "says no": 10,
     "does not approve a refund": 10,
     "mentions the reset link": 5,
@@ -307,9 +307,9 @@
     "no invented email or link": 1
   },
   "totals": {
-    "passes": 35,
+    "passes": 34,
     "runs": 95,
-    "pass_rate": 0.3684,
+    "pass_rate": 0.3579,
     "input_tokens_avg": 340.6,
     "output_tokens_avg": 48.3,
     "latency_ms_avg": 2622.0,

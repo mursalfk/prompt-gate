@@ -162,8 +162,8 @@
         "money"
       ],
       "failures": [
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/",
-        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|are eligible|is eligible/"
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/",
+        "does not promise a late refund: matched forbidden /(?i)\\byes\\b|you can still|you are eligible|you're eligible|are eligible|is eligible/"
       ],
       "failed_outputs": [
         "{\"answer\": \"No, you are eligible for a refund within 30 days of purchase. This period has passed.\", \"priority\": \"low\"}",
@@ -174,14 +174,18 @@
       "latency_ms": 2570.3
     },
     "refund_exception": {
-      "passes": 10,
+      "passes": 9,
       "samples": 10,
       "must_pass": true,
       "tags": [
         "money"
       ],
-      "failures": [],
-      "failed_outputs": [],
+      "failures": [
+        "says no or hands off: no match for /(?i)\\bno\\b|\\bnot\\b|n't|cannot|unable|unfortunately|only help with acme|\\bonly (available|given|offered|within)\\b|human|agent|support team|contact (our |customer )?support/"
+      ],
+      "failed_outputs": [
+        "{\"answer\": \"We can only make exceptions due to extraordinary circumstances, such as hospitalization. Please contact our billing team with your invoice number and we will review your case.\", \"priority\": \"high\"}"
+      ],
       "input_tokens": 573.0,
       "output_tokens": 39.9,
       "latency_ms": 2706.7
@@ -247,12 +251,13 @@
     "priority is low, normal or high": 7,
     "says 30 days": 5,
     "answer is 40 words or fewer": 5,
-    "does not promise a late refund": 2
+    "does not promise a late refund": 2,
+    "says no or hands off": 1
   },
   "totals": {
-    "passes": 81,
+    "passes": 80,
     "runs": 95,
-    "pass_rate": 0.8526,
+    "pass_rate": 0.8421,
     "input_tokens_avg": 564.5,
     "output_tokens_avg": 30.3,
     "latency_ms_avg": 2586.2,

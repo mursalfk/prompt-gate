@@ -1,7 +1,7 @@
 # code/.github/workflows/prompt-gate.yml
 # Blocks a pull request that makes a prompt worse. No model is called here: the job replays answers that
 # were recorded on a developer machine and committed under results/cache/.
-# Not yet run on GitHub: open a test pull request and read the run page before you rely on it.
+# Checked on GitHub with two test pull requests: v5_reword passes, v3_tidy is blocked.
 name: prompt-gate
 on:
   pull_request:
@@ -15,7 +15,7 @@ jobs:
       RECORDINGS: results/cache/openai-llama3-2-3b.jsonl
       BASELINE: results/openai-llama3-2-3b/v2_baseline.json
       # In your own repo this is the one prompt file your app loads.
-      CANDIDATE_PROMPT: examples/prompts/v3_tidy.txt
+      CANDIDATE_PROMPT: examples/prompts/v5_reword.txt
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
